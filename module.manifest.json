@@ -1,20 +1,49 @@
 {
-  "id": "webwaka-core-registry",
+  "moduleId": "webwaka-core-registry",
   "name": "Core Registry",
   "version": "0.1.0",
-  "type": "core",
-  "description": "Module registry and platform skeleton for WebWaka modular architecture",
-  "capabilities": [],
-  "dependencies": [],
-  "maintainers": [
+  "class": "core",
+  "description": "Module registry and capability spine for WebWaka modular architecture",
+  "capabilities": [
     {
-      "name": "ChangerPlanet Team",
-      "email": "changerplanet@gmail.com"
+      "id": "module-validation",
+      "name": "Module Validation",
+      "description": "Schema-based validation of module manifests",
+      "version": "1.0"
+    },
+    {
+      "id": "module-registration",
+      "name": "Module Registration",
+      "description": "Registration and indexing of modules in the registry",
+      "version": "1.0"
+    },
+    {
+      "id": "capability-resolution",
+      "name": "Capability Resolution",
+      "description": "Deterministic resolution of capabilities to providing modules",
+      "version": "1.0"
+    },
+    {
+      "id": "tenant-management",
+      "name": "Tenant Management",
+      "description": "Per-tenant module enable/disable with dependency enforcement",
+      "version": "1.0"
     }
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ChangerPlanet/webwaka-core-registry"
-  },
-  "license": "MIT"
+  "dependencies": [],
+  "metadata": {
+    "maintainers": [
+      {
+        "name": "ChangerPlanet Team",
+        "email": "changerplanet@gmail.com",
+        "role": "owner"
+      }
+    ],
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/changerplanet/webwaka-core-registry"
+    },
+    "keywords": ["webwaka", "module", "registry", "platform", "capability"]
+  }
 }
