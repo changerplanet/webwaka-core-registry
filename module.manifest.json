@@ -1,20 +1,36 @@
 {
-  "id": "webwaka-core-registry",
-  "name": "Core Registry",
-  "version": "0.1.0",
-  "type": "core",
-  "description": "Module registry and platform skeleton for WebWaka modular architecture",
-  "capabilities": [],
-  "dependencies": [],
-  "maintainers": [
+  "moduleId": "webwaka-core-registry",
+  "class": "core",
+  "version": "0.2.0",
+  "capabilities": [
     {
-      "name": "ChangerPlanet Team",
-      "email": "changerplanet@gmail.com"
+      "id": "registry:validate",
+      "name": "Manifest Validation",
+      "description": "Validates module manifests against the canonical JSON Schema"
+    },
+    {
+      "id": "registry:register",
+      "name": "Module Registration",
+      "description": "Registers modules in the central registry"
+    },
+    {
+      "id": "registry:resolve",
+      "name": "Capability Resolution",
+      "description": "Resolves capability IDs to their owning modules"
+    },
+    {
+      "id": "registry:tenant-control",
+      "name": "Tenant Module Control",
+      "description": "Enables/disables modules per tenant with dependency enforcement"
     }
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ChangerPlanet/webwaka-core-registry"
-  },
-  "license": "MIT"
+  "dependencies": [],
+  "metadata": {
+    "name": "Core Registry",
+    "description": "Module registry and capability spine for WebWaka platform. Single source of truth for modules, capabilities, dependencies, and tenant enablement.",
+    "author": "ChangerPlanet Team",
+    "license": "MIT",
+    "repository": "https://github.com/ChangerPlanet/webwaka-core-registry",
+    "keywords": ["webwaka", "module-registry", "capabilities", "tenant-control"]
+  }
 }
