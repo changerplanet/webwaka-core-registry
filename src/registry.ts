@@ -9,8 +9,7 @@ import {
   TenantModuleState,
   ValidationResult,
   CapabilityResolution,
-  ModuleOperationResult,
-  Capability
+  ModuleOperationResult
 } from './types';
 import { validateManifest } from './validator';
 
@@ -189,7 +188,7 @@ export class ModuleRegistry {
   listCapabilities(): CapabilityResolution[] {
     const results: CapabilityResolution[] = [];
     
-    for (const [capabilityId, moduleId] of this.capabilityIndex) {
+    for (const capabilityId of this.capabilityIndex.keys()) {
       const resolution = this.resolveCapability(capabilityId);
       if (resolution) {
         results.push(resolution);
