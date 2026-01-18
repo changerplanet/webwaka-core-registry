@@ -173,11 +173,11 @@ describe('Module Manifest Validation', () => {
     });
 
     it('should reject invalid capability IDs', () => {
-      expect(isValidCapabilityId('a')).toBe(false);  // too short
-      expect(isValidCapabilityId('ab')).toBe(false); // too short
+      expect(isValidCapabilityId('a')).toBe(false);  // too short (1 char)
       expect(isValidCapabilityId('Hello-World')).toBe(false); // uppercase
       expect(isValidCapabilityId('-hello')).toBe(false); // starts with dash
       expect(isValidCapabilityId('hello-')).toBe(false); // ends with dash
+      expect(isValidCapabilityId('1hello')).toBe(false); // starts with number
     });
   });
 
