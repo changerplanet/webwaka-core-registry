@@ -40,7 +40,9 @@ export class ManifestValidator {
     try {
       const schemaContent = fs.readFileSync(SCHEMA_PATH, 'utf-8');
       this.schema = JSON.parse(schemaContent);
-      this.validateFn = this.ajv.compile(this.schema);
+      if (this.schema) {
+        this.validateFn = this.ajv.compile(this.schema as Parameters<typeof this.ajv.compile>[0]);
+      }
     } catch (error) {
       // Schema will be loaded lazily or from embedded schema
       this.schema = null;
@@ -53,7 +55,7 @@ export class ManifestValidator {
    */
   setSchema(schema: object): void {
     this.schema = schema;
-    this.validateFn = this.ajv.compile(schema);
+    this.validateFn = this.ajv.compile(schema as Parameters<typeof this.ajv.compile>[0]);
   }
 
   /**
