@@ -226,7 +226,7 @@ FNDA:92,createValidator
 FNDA:92,validateManifest
 FNDA:9,isValidModuleId
 FNDA:10,isValidSemver
-FNDA:5,isValidCapabilityId
+FNDA:8,isValidCapabilityId
 FNDA:7,extractModuleClass
 DA:6,4
 DA:7,4
@@ -272,7 +272,7 @@ DA:143,9
 DA:151,4
 DA:152,10
 DA:160,4
-DA:161,5
+DA:161,8
 DA:169,4
 DA:170,7
 DA:171,7
