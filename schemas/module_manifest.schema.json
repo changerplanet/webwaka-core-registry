@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://webwaka.io/schemas/module_manifest.schema.json",
+  "title": "WebWaka Module Manifest",
+  "description": "Canonical schema for validating module.manifest.json files across all WebWaka repositories",
+  "type": "object",
+  "required": ["moduleId", "class", "version", "capabilities", "dependencies", "metadata"],
+  "additionalProperties": false,
+  "properties": {
+    "moduleId": {
+      "type": "string",
+      "description": "Unique module identifier. MUST match the repository name exactly.",
+      "pattern": "^webwaka-(core|suite|industry|ext|infra)-[a-z0-9-]+$",
+      "minLength": 1
+    },
+    "class": {
+      "type": "string",
+      "description": "Module classification. MUST match the repository prefix.",
+      "enum": ["core", "suite", "industry", "ext", "infra"]
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version of the module.",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+    },
+    "capabilities": {
+      "type": "array",
+      "description": "List of capabilities this module provides. Each capability MUST be globally unique.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Globally unique capability identifier.",
+            "pattern": "^[a-z][a-z0-9-]*:[a-z][a-z0-9-]*$",
+            "minLength": 3
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable capability name.",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the capability."
+          },
+          "version": {
+            "type": "string",
+            "description": "Capability version (defaults to module version if not specified).",
+            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$"
+          }
+        }
+      },
+      "uniqueItems": true
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "List of module dependencies. Each dependency MUST reference a valid moduleId.",
+      "items": {
+        "type": "object",
+        "required": ["moduleId"],
+        "additionalProperties": false,
+        "properties": {
+          "moduleId": {
+            "type": "string",
+            "description": "The moduleId of the required dependency.",
+            "pattern": "^webwaka-(core|suite|industry|ext|infra)-[a-z0-9-]+$"
+          },
+          "versionRange": {
+            "type": "string",
+            "description": "Semver range for the required dependency version.",
+            "default": "*"
+          },
+          "optional": {
+            "type": "boolean",
+            "description": "Whether this dependency is optional.",
+            "default": false
+          }
+        }
+      },
+      "uniqueItems": true
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Module metadata for documentation and discovery.",
+      "required": ["name", "description", "author", "license"],
+      "additionalProperties": true,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable module name.",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed module description.",
+          "minLength": 1
+        },
+        "author": {
+          "type": "string",
+          "description": "Module author or team.",
+          "minLength": 1
+        },
+        "license": {
+          "type": "string",
+          "description": "SPDX license identifier.",
+          "minLength": 1
+        },
+        "repository": {
+          "type": "string",
+          "description": "Repository URL.",
+          "format": "uri"
+        },
+        "homepage": {
+          "type": "string",
+          "description": "Project homepage URL.",
+          "format": "uri"
+        },
+        "keywords": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}
