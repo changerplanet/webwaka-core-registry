@@ -29,7 +29,7 @@ jobs:
           fi
           
           # Validate required fields
-          required_fields=("id" "name" "version" "type" "description")
+          required_fields=("moduleId" "class" "version" "capabilities" "dependencies" "metadata")
           for field in "${required_fields[@]}"; do
             if ! jq -e ".$field" module.manifest.json > /dev/null 2>&1; then
               echo "Error: Required field '$field' missing from module.manifest.json"
@@ -68,10 +68,10 @@ jobs:
       - name: Validate repository naming
         run: |
           repo_name="${GITHUB_REPOSITORY##*/}"
-          manifest_id=$(jq -r '.id' module.manifest.json)
+          manifest_id=$(jq -r '.moduleId' module.manifest.json)
           
           if [ "$repo_name" != "$manifest_id" ]; then
-            echo "Error: Repository name ($repo_name) does not match manifest ID ($manifest_id)"
+            echo "Error: Repository name ($repo_name) does not match manifest moduleId ($manifest_id)"
             exit 1
           fi
           
@@ -92,3 +92,41 @@ jobs:
           fi
           
           echo "✓ Repository naming validation passed"
+
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build TypeScript
+        run: yarn build
+
+      - name: Run tests
+        run: yarn test --coverage
+
+      - name: Validate JSON Schema
+        run: |
+          if [ ! -f "schemas/module_manifest.schema.json" ]; then
+            echo "Error: Module manifest schema not found"
+            exit 1
+          fi
+          
+          # Validate the schema itself is valid JSON
+          if ! jq empty schemas/module_manifest.schema.json 2>/dev/null; then
+            echo "Error: module_manifest.schema.json is not valid JSON"
+            exit 1
+          fi
+          
+          echo "✓ JSON Schema validation passed"
