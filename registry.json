@@ -1,0 +1,772 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-01-20",
+  "modules": {
+    "webwaka_core_registry": {
+      "moduleId": "webwaka_core_registry",
+      "name": "webwaka-core-registry",
+      "class": "core",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-registry",
+      "vercel": {
+        "preview": "https://webwaka-core-registry-git-main.vercel.app",
+        "production": "https://webwaka-core-registry.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_core_identity": {
+      "moduleId": "webwaka_core_identity",
+      "name": "webwaka-core-identity",
+      "class": "core",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-identity",
+      "vercel": {
+        "preview": "https://webwaka-core-identity-git-main.vercel.app",
+        "production": "https://webwaka-core-identity.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_core_permissions": {
+      "moduleId": "webwaka_core_permissions",
+      "name": "webwaka-core-permissions",
+      "class": "core",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-permissions",
+      "vercel": {
+        "preview": "https://webwaka-core-permissions-git-main.vercel.app",
+        "production": "https://webwaka-core-permissions.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_core_audit": {
+      "moduleId": "webwaka_core_audit",
+      "name": "webwaka-core-audit",
+      "class": "core",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-audit",
+      "vercel": {
+        "preview": "https://webwaka-core-audit-git-main.vercel.app",
+        "production": "https://webwaka-core-audit.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_core_receipts": {
+      "moduleId": "webwaka_core_receipts",
+      "name": "webwaka-core-receipts",
+      "class": "core",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-receipts",
+      "vercel": {
+        "preview": "https://webwaka-core-receipts-git-main.vercel.app",
+        "production": "https://webwaka-core-receipts.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_core_payments": {
+      "moduleId": "webwaka_core_payments",
+      "name": "webwaka-core-payments",
+      "class": "core",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-payments",
+      "vercel": {
+        "preview": "https://webwaka-core-payments-git-main.vercel.app",
+        "production": "https://webwaka-core-payments.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_core_inventory": {
+      "moduleId": "webwaka_core_inventory",
+      "name": "webwaka-core-inventory",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-inventory",
+      "vercel": {
+        "preview": "https://webwaka-core-inventory-git-main.vercel.app",
+        "production": "https://webwaka-core-inventory.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [
+        "inventory:create-item",
+        "inventory:adjust-stock",
+        "inventory:reserve-stock",
+        "inventory:release-reservation",
+        "inventory:fulfill-reservation",
+        "inventory:query-availability"
+      ],
+      "dependencies": [
+        {
+          "moduleId": "webwaka-core-registry",
+          "version": "^0.1.0",
+          "required": true
+        }
+      ],
+      "enabled": false
+    },
+    "webwaka_core_ledger": {
+      "moduleId": "webwaka_core_ledger",
+      "name": "webwaka-core-ledger",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-ledger",
+      "vercel": {
+        "preview": "https://webwaka-core-ledger-git-main.vercel.app",
+        "production": "https://webwaka-core-ledger.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [
+        {
+          "id": "ledger:account:open",
+          "name": "Open Account",
+          "description": "Create a new ledger account for a tenant"
+        },
+        {
+          "id": "ledger:event:record",
+          "name": "Record Event",
+          "description": "Record a financial event (credit/debit) to an account"
+        },
+        {
+          "id": "ledger:event:reverse",
+          "name": "Reverse Event",
+          "description": "Create a compensating reversal event"
+        },
+        {
+          "id": "ledger:balance:get",
+          "name": "Get Account Balance",
+          "description": "Calculate derived balance from event history"
+        },
+        {
+          "id": "ledger:statement:get",
+          "name": "Get Account Statement",
+          "description": "Retrieve account statement with running balances"
+        },
+        {
+          "id": "ledger:integrity:verify",
+          "name": "Verify Ledger Integrity",
+          "description": "Validate account integrity and event sequence"
+        }
+      ],
+      "dependencies": [
+        {
+          "moduleId": "webwaka-core-registry",
+          "version": "^0.0.0",
+          "required": false,
+          "description": "Module registration and capability resolution"
+        }
+      ],
+      "enabled": false
+    },
+    "webwaka_core_pricing": {
+      "moduleId": "webwaka_core_pricing",
+      "name": "webwaka-core-pricing",
+      "class": "core",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-pricing",
+      "vercel": {
+        "preview": "https://webwaka-core-pricing-git-main.vercel.app",
+        "production": "https://webwaka-core-pricing.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [
+        "pricing:evaluate",
+        "pricing:plan.define",
+        "pricing:plan.version",
+        "pricing:preview"
+      ],
+      "dependencies": [
+        "webwaka-core-ledger",
+        "webwaka-core-entitlements"
+      ],
+      "enabled": false
+    },
+    "webwaka_core_entitlements": {
+      "moduleId": "webwaka_core_entitlements",
+      "name": "webwaka-core-entitlements",
+      "class": "core",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-entitlements",
+      "vercel": {
+        "preview": "https://webwaka-core-entitlements-git-main.vercel.app",
+        "production": "https://webwaka-core-entitlements.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [
+        "entitlement:check",
+        "entitlement:snapshot.generate",
+        "entitlement:snapshot.verify",
+        "entitlement:grant.define",
+        "entitlement:override.apply"
+      ],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_core_incentives": {
+      "moduleId": "webwaka_core_incentives",
+      "name": "webwaka-core-incentives",
+      "class": "core",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-incentives",
+      "vercel": {
+        "preview": "https://webwaka-core-incentives-git-main.vercel.app",
+        "production": "https://webwaka-core-incentives.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [
+        "incentive:evaluate",
+        "incentive:definition.create",
+        "incentive:rule.define",
+        "incentive:relationship.link",
+        "incentive:snapshot.generate",
+        "incentive:snapshot.verify"
+      ],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_core_branding": {
+      "moduleId": "webwaka_core_branding",
+      "name": "webwaka-core-branding",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-branding",
+      "vercel": {
+        "preview": "https://webwaka-core-branding-git-main.vercel.app",
+        "production": "https://webwaka-core-branding.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [
+        "branding:define",
+        "branding:layer.apply",
+        "branding:resolve",
+        "branding:snapshot.generate",
+        "branding:snapshot.verify"
+      ],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_core_feature_flags": {
+      "moduleId": "webwaka_core_feature_flags",
+      "name": "webwaka-core-feature-flags",
+      "class": "core",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-feature-flags",
+      "vercel": {
+        "preview": "https://webwaka-core-feature-flags-git-main.vercel.app",
+        "production": "https://webwaka-core-feature-flags.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [
+        "feature:check",
+        "experiment:assign",
+        "feature:snapshot.generate",
+        "feature:snapshot.verify",
+        "experiment:snapshot.evaluate"
+      ],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_core_dashboard_control": {
+      "moduleId": "webwaka_core_dashboard_control",
+      "name": "webwaka-core-dashboard-control",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-dashboard-control",
+      "vercel": {
+        "preview": "https://webwaka-core-dashboard-control-git-main.vercel.app",
+        "production": "https://webwaka-core-dashboard-control.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [
+        "dashboard:resolve",
+        "dashboard:snapshot.generate",
+        "dashboard:snapshot.verify"
+      ],
+      "dependencies": [
+        "webwaka-core-identity",
+        "webwaka-core-permissions",
+        "webwaka-core-entitlements",
+        "webwaka-core-feature-flags",
+        "webwaka-core-branding"
+      ],
+      "enabled": false
+    },
+    "webwaka_suite_superadmin_dashboard": {
+      "moduleId": "webwaka_suite_superadmin_dashboard",
+      "name": "webwaka-suite-superadmin-dashboard",
+      "class": "suite",
+      "version": "0.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-superadmin-dashboard",
+      "vercel": {
+        "preview": "https://webwaka-suite-superadmin-dashboard-git-main.vercel.app",
+        "production": "https://webwaka-suite-superadmin-dashboard.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_superadmin_dashboard_ui": {
+      "moduleId": "webwaka_suite_superadmin_dashboard_ui",
+      "name": "webwaka-suite-superadmin-dashboard-ui",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-superadmin-dashboard-ui",
+      "vercel": {
+        "preview": "https://webwaka-suite-superadmin-dashboard-ui-git-main.vercel.app",
+        "production": "https://webwaka-suite-superadmin-dashboard-ui.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_partner_dashboard": {
+      "moduleId": "webwaka_suite_partner_dashboard",
+      "name": "webwaka-suite-partner-dashboard",
+      "class": "suite",
+      "version": "1.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-partner-dashboard",
+      "vercel": {
+        "preview": "https://webwaka-suite-partner-dashboard-git-main.vercel.app",
+        "production": "https://webwaka-suite-partner-dashboard.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [
+        "dashboard:partner.resolve",
+        "dashboard:partner.snapshot.generate",
+        "dashboard:partner.snapshot.verify"
+      ],
+      "dependencies": [
+        "webwaka-core-dashboard-engine"
+      ],
+      "enabled": false
+    },
+    "webwaka_suite_tenant_dashboard": {
+      "moduleId": "webwaka_suite_tenant_dashboard",
+      "name": "webwaka-suite-tenant-dashboard",
+      "class": "suite",
+      "version": "1.0.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-tenant-dashboard",
+      "vercel": {
+        "preview": "https://webwaka-suite-tenant-dashboard-git-main.vercel.app",
+        "production": "https://webwaka-suite-tenant-dashboard.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [
+        "dashboard:tenant.resolve",
+        "dashboard:tenant.snapshot.generate",
+        "dashboard:tenant.snapshot.verify"
+      ],
+      "dependencies": [
+        "webwaka-core-dashboard-control"
+      ],
+      "enabled": false
+    },
+    "webwaka_suite_pos": {
+      "moduleId": "webwaka_suite_pos",
+      "name": "webwaka-suite-pos",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-pos",
+      "vercel": {
+        "preview": "https://webwaka-suite-pos-git-main.vercel.app",
+        "production": "https://webwaka-suite-pos.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_pos_control": {
+      "moduleId": "webwaka_suite_pos_control",
+      "name": "webwaka-suite-pos-control",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-pos-control",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_svm": {
+      "moduleId": "webwaka_suite_svm",
+      "name": "webwaka-suite-svm",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-svm",
+      "vercel": {
+        "preview": "https://webwaka-suite-svm-git-main.vercel.app",
+        "production": "https://webwaka-suite-svm.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_mvm": {
+      "moduleId": "webwaka_suite_mvm",
+      "name": "webwaka-suite-mvm",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-mvm",
+      "vercel": {
+        "preview": "https://webwaka-suite-mvm-git-main.vercel.app",
+        "production": "https://webwaka-suite-mvm.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_sites": {
+      "moduleId": "webwaka_suite_sites",
+      "name": "webwaka-suite-sites",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-sites",
+      "vercel": {
+        "preview": "https://webwaka-suite-sites-git-main.vercel.app",
+        "production": "https://webwaka-suite-sites.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_funnels": {
+      "moduleId": "webwaka_suite_funnels",
+      "name": "webwaka-suite-funnels",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-funnels",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_logistics": {
+      "moduleId": "webwaka_suite_logistics",
+      "name": "webwaka-suite-logistics",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-logistics",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_hospitality": {
+      "moduleId": "webwaka_suite_hospitality",
+      "name": "webwaka-suite-hospitality",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-hospitality",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_restaurant": {
+      "moduleId": "webwaka_suite_restaurant",
+      "name": "webwaka-suite-restaurant",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-restaurant",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_health": {
+      "moduleId": "webwaka_suite_health",
+      "name": "webwaka-suite-health",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-health",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_education": {
+      "moduleId": "webwaka_suite_education",
+      "name": "webwaka-suite-education",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-education",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_legal": {
+      "moduleId": "webwaka_suite_legal",
+      "name": "webwaka-suite-legal",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-legal",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_real_estate": {
+      "moduleId": "webwaka_suite_real_estate",
+      "name": "webwaka-suite-real-estate",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-real-estate",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_recruitment": {
+      "moduleId": "webwaka_suite_recruitment",
+      "name": "webwaka-suite-recruitment",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-recruitment",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_project_management": {
+      "moduleId": "webwaka_suite_project_management",
+      "name": "webwaka-suite-project-management",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-project-management",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_political": {
+      "moduleId": "webwaka_suite_political",
+      "name": "webwaka-suite-political",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-political",
+      "vercel": {
+        "preview": "https://webwaka-suite-political-git-main.vercel.app",
+        "production": "https://webwaka-suite-political.vercel.app"
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_civic": {
+      "moduleId": "webwaka_suite_civic",
+      "name": "webwaka-suite-civic",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-civic",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_community": {
+      "moduleId": "webwaka_suite_community",
+      "name": "webwaka-suite-community",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-community",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_social_platform": {
+      "moduleId": "webwaka_suite_social_platform",
+      "name": "webwaka-suite-social-platform",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-social-platform",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_messaging": {
+      "moduleId": "webwaka_suite_messaging",
+      "name": "webwaka-suite-messaging",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-messaging",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_analytics": {
+      "moduleId": "webwaka_suite_analytics",
+      "name": "webwaka-suite-analytics",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-analytics",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_ai_platform": {
+      "moduleId": "webwaka_suite_ai_platform",
+      "name": "webwaka-suite-ai-platform",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-ai-platform",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_automation": {
+      "moduleId": "webwaka_suite_automation",
+      "name": "webwaka-suite-automation",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-automation",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_marketplace": {
+      "moduleId": "webwaka_suite_marketplace",
+      "name": "webwaka-suite-marketplace",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-marketplace",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_integrations": {
+      "moduleId": "webwaka_suite_integrations",
+      "name": "webwaka-suite-integrations",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-integrations",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    },
+    "webwaka_suite_external_deployment": {
+      "moduleId": "webwaka_suite_external_deployment",
+      "name": "webwaka-suite-external-deployment",
+      "class": "suite",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-suite-external-deployment",
+      "vercel": {
+        "preview": "",
+        "production": ""
+      },
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false
+    }
+  }
+}
