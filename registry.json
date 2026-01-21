@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2026-01-20",
+  "updated": "2026-01-21",
   "modules": {
     "webwaka_core_registry": {
       "moduleId": "webwaka_core_registry",
@@ -767,6 +767,111 @@
       "capabilities": [],
       "dependencies": [],
       "enabled": false
+    },
+    "webwaka_core_pricing_ledger": {
+      "moduleId": "webwaka_core_pricing_ledger",
+      "name": "webwaka-core-pricing-ledger",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-pricing-ledger",
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false,
+      "vercel": {
+        "preview": "https://webwaka-core-pricing-ledger-git-main.vercel.app",
+        "production": "https://webwaka-core-pricing-ledger.vercel.app"
+      }
+    },
+    "webwaka_core_subscriptions": {
+      "moduleId": "webwaka_core_subscriptions",
+      "name": "webwaka-core-subscriptions",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-subscriptions",
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false,
+      "vercel": {
+        "preview": "PENDING - Vercel project limit reached",
+        "production": "PENDING - Vercel project limit reached"
+      }
+    },
+    "webwaka_core_billing": {
+      "moduleId": "webwaka_core_billing",
+      "name": "webwaka-core-billing",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-billing",
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false,
+      "vercel": {
+        "preview": "PENDING - Vercel project limit reached",
+        "production": "PENDING - Vercel project limit reached"
+      }
+    },
+    "webwaka_core_tax": {
+      "moduleId": "webwaka_core_tax",
+      "name": "webwaka-core-tax",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-tax",
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false,
+      "vercel": {
+        "preview": "PENDING - Vercel project limit reached",
+        "production": "PENDING - Vercel project limit reached"
+      }
+    },
+    "webwaka_core_revenue_recognition": {
+      "moduleId": "webwaka_core_revenue_recognition",
+      "name": "webwaka-core-revenue-recognition",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-revenue-recognition",
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false,
+      "vercel": {
+        "preview": "PENDING - Vercel project limit reached",
+        "production": "PENDING - Vercel project limit reached"
+      }
+    },
+    "webwaka_core_notifications": {
+      "moduleId": "webwaka_core_notifications",
+      "name": "webwaka-core-notifications",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-notifications",
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false,
+      "vercel": {
+        "preview": "https://webwaka-core-notifications-git-main.vercel.app",
+        "production": "https://webwaka-core-notifications.vercel.app"
+      }
+    },
+    "webwaka_core_workflows": {
+      "moduleId": "webwaka_core_workflows",
+      "name": "webwaka-core-workflows",
+      "class": "core",
+      "version": "0.1.0",
+      "repository": "https://github.com/changerplanet/webwaka-core-workflows",
+      "status": "substrate",
+      "capabilities": [],
+      "dependencies": [],
+      "enabled": false,
+      "vercel": {
+        "preview": "PENDING - Vercel project limit reached",
+        "production": "PENDING - Vercel project limit reached"
+      }
     }
   }
 }
